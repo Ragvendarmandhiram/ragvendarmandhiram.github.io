@@ -66,6 +66,36 @@ document.addEventListener('DOMContentLoaded', () => {
   const canvas = document.getElementById('scrollCanvas');
   const ctx = canvas?.getContext('2d');
   if (!ctx) return;
+  const animationToggle = document.querySelector('.c-animation-toggle');
+  const pageContent = document.getElementById('main');
+  const animationHint = document.getElementById('animationHint');
+  function setAnimationView(active) {
+    root.dataset.studioView = active ? 'full' : 'portfolio';
+    if (pageContent) {
+      pageContent.toggleAttribute('inert', active);
+      if (active) pageContent.setAttribute('aria-hidden', 'true');
+      else pageContent.removeAttribute('aria-hidden');
+    }
+    if (animationToggle) {
+      animationToggle.setAttribute('aria-pressed', String(active));
+      animationToggle.setAttribute('aria-label', active ? 'Back to portfolio' : 'View the full studio animation');
+      animationToggle.textContent = active ? 'Back to portfolio ×' : 'View animation ⤢';
+    }
+    if (animationHint) animationHint.hidden = !active;
+    closeMenu();
+    resizeCanvas();
+    updateScroll();
+  }
+  animationToggle?.addEventListener('click', () => setAnimationView(root.dataset.studioView !== 'full'));
+  navigation?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    if (root.dataset.studioView === 'full') setAnimationView(false);
+  }));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && root.dataset.studioView === 'full') {
+      setAnimationView(false);
+      animationToggle?.focus();
+    }
+  });
   const frameCount = 90;
   const cache = new Map();
   let currentFrame = 0, targetFrame = 0, animationId = null;
@@ -91,13 +121,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (!image) return;
     const width = window.innerWidth, height = window.innerHeight;
-    // Frame the room itself, keeping embedded reference-page labels outside the canvas.
+    // Keep the clean studio scene, excluding the reference-page header.
     const sx = image.naturalWidth * .085, sy = image.naturalHeight * .265;
     const sw = image.naturalWidth * .83, sh = image.naturalHeight * .565;
-    const scale = Math.max(width / sw, height / sh);
+    const navHeight = document.querySelector('.l-navbar')?.getBoundingClientRect().height || 0;
+    const controlsHeight = root.dataset.studioView === 'full'
+      ? (document.querySelector('.c-animation-controls')?.getBoundingClientRect().height || 0) + 36
+      : 0;
+    const inset = 12;
+    const availableWidth = Math.max(1, width - inset * 2);
+    const availableHeight = Math.max(1, height - navHeight - controlsHeight - inset * 2);
+    // Contain the scene below the fixed navigation instead of zooming and cropping it.
+    const scale = Math.min(availableWidth / sw, availableHeight / sh);
     const rw = sw * scale, rh = sh * scale;
     ctx.clearRect(0, 0, width, height);
-    ctx.drawImage(image, sx, sy, sw, sh, (width - rw) / 2, (height - rh) / 2, rw, rh);
+    // A soft backdrop fills spare space on tall screens without cropping the main scene.
+    const backdropScale = Math.max(width / sw, height / sh) * 1.08;
+    const bw = sw * backdropScale, bh = sh * backdropScale;
+    ctx.save();
+    ctx.filter = 'blur(22px)';
+    ctx.globalAlpha = .35;
+    ctx.drawImage(image, sx, sy, sw, sh, (width - bw) / 2, (height - bh) / 2, bw, bh);
+    ctx.restore();
+    ctx.drawImage(image, sx, sy, sw, sh, (width - rw) / 2, navHeight + (height - navHeight - controlsHeight - rh) / 2, rw, rh);
   }
   function resizeCanvas() {
     const ratio = Math.min(window.devicePixelRatio || 1, 2);
@@ -121,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
     requestNearby(Math.round(targetFrame));
     if (animationId === null) animationId = requestAnimationFrame(animate);
   }
-  window.addEventListener('resize', resizeCanvas);
+  window.addEventListener('resize', () => { resizeCanvas(); updateScroll(); });
   window.addEventListener('scroll', updateScroll, { passive: true });
   reducedMotion.addEventListener('change', () => { if (animationId !== null) cancelAnimationFrame(animationId); animationId = null; updateScroll(); });
   resizeCanvas(); loadFrame(0); updateScroll();

@@ -19,12 +19,12 @@
   --color-accent-gradient: linear-gradient(135deg, #FEA831 0%, #FF5A36 100%);
   
   --color-bg-dark: #0D0C0B;
-  --color-bg-card: rgba(24, 22, 20, 0.72);
+  --color-bg-card: rgba(24, 22, 20, 0.66);
   --color-border: rgba(255, 255, 255, 0.1);
   --color-border-glow: rgba(254, 168, 49, 0.3);
   
   --color-text-main: #F7F5F1;
-  --color-text-muted: #A39E93;
+  --color-text-muted: #BDB7AC;
   --color-text-light: #6E685D;
 
   --font-display: 'Righteous', cursive, sans-serif;
@@ -109,8 +109,6 @@ img, video {
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  will-change: transform;
 }
 
 /* Cinematic Vignette Overlay */
@@ -347,8 +345,8 @@ img, video {
 /* Glassmorphism Card Style */
 .c-glass-card {
   background: var(--color-bg-card);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   border: 1px solid var(--color-border);
   border-radius: 24px;
   padding: 36px;
@@ -1196,7 +1194,7 @@ html{scroll-padding-top:105px}.c-orange{color:var(--color-orange)}.c-btn--primar
 @media(max-width:980px){.l-navbar__nav{display:none;position:absolute;left:20px;right:20px;top:calc(var(--nav-height) - 5px);padding:22px;flex-direction:column;align-items:flex-start;gap:17px;background:#161410fa;border:1px solid var(--color-border-glow);border-radius:18px;box-shadow:0 20px 40px #0008;backdrop-filter:blur(20px)}.l-navbar__nav.is-open{display:flex}.l-navbar__link{font-size:15px}.c-menu-toggle{display:flex;align-items:center;gap:10px;font-size:12px;padding:8px;border-radius:8px;border:1px solid var(--color-border)}.c-menu-toggle span{font-size:18px;line-height:1;color:var(--color-orange)}.c-concept-card .c-project-title{font-size:25px}.c-concept-summary{font-size:13px}.c-concept-card{padding:17px}.c-hero__grid{gap:40px}.c-hero__content{max-width:700px}.c-hero__portrait-frame{max-width:350px}.c-nexus-media-wrap{min-height:380px}.p-nexus-gallery-grid{grid-template-columns:1fr 1fr}.c-section-title{font-size:38px}.c-hero__title{font-size:48px}}
 @media(max-width:600px){:root{--nav-height:72px}.l-navbar__inner{padding:0 17px;gap:10px}.l-navbar__actions>.c-btn{display:none}.l-navbar__logo-badge{width:35px;height:35px}.l-navbar__brand{gap:8px}.l-navbar__logo-text{font-size:17px}.l-navbar__logo-sub{font-size:8px}.l-navbar__actions{gap:8px}.c-studio-toggle{width:33px;height:33px;font-size:20px}.c-menu-toggle{font-size:11px;gap:7px;padding:8px}.c-hero{padding-top:110px;min-height:0;padding-bottom:55px}.c-hero__title{font-size:37px;line-height:1.14}.c-hero__subtitle{font-size:15px;line-height:1.75;margin-bottom:28px}.c-hero__status-pill{font-size:9px;padding:9px 12px;line-height:1.6;border-radius:16px;align-items:flex-start}.c-hero__status-dot{margin-top:4px}.c-hero__actions{gap:11px;margin-bottom:30px;flex-wrap:wrap}.c-btn{font-size:12px;padding:11px 18px}.c-hero__stats{gap:14px;padding-top:25px}.c-hero__stat-num{font-size:29px}.c-hero__stat-label{font-size:8px;line-height:1.6}.c-hero__portrait-frame{max-width:320px;border-radius:24px}.c-hero__portrait-badge{padding:10px 13px}.c-section{padding:65px 0}.c-section-header{margin-bottom:32px}.c-section-title{font-size:31px}.c-section-desc{font-size:14px;line-height:1.75}.c-section-badge{font-size:9px;padding:6px 12px;letter-spacing:.05em}.c-glass-card{padding:23px;border-radius:21px}.c-about__portrait-card img{height:auto;aspect-ratio:819/1024}.c-about__text h2{font-size:29px!important}.c-about__text p{font-size:14px;line-height:1.8}.c-about__languages{padding:17px}.c-concept-grid{grid-template-columns:1fr;gap:24px}.c-concept-card{padding:16px}.c-concept-art{aspect-ratio:1/1.17;padding:14px;margin-bottom:22px}.c-concept-card .c-project-title{font-size:26px}.c-concept-card .c-project-tag{font-size:9px}.c-concept-summary{font-size:13px}.c-collection-note{font-size:10px;line-height:1.7}.c-project-item{gap:25px}.c-project-media{height:290px;border-radius:17px}.c-nexus-media-wrap{min-height:320px}.c-project-title{font-size:27px}.c-project-desc{font-size:13px;line-height:1.75;margin-bottom:20px}.c-project-meta{gap:16px;padding:13px}.c-project-meta-item strong{font-size:11px}.c-project-meta-item span{font-size:9px}.c-nexus-toggle-bar{left:9px;right:9px;top:9px;gap:5px}.c-nexus-toggle-btn{font-size:9px;padding:7px 9px}.c-nexus-badge-floating{font-size:9px;left:9px;right:9px;bottom:9px;padding:8px 10px}.c-nexus-mini-thumbs{gap:7px}.c-nexus-mini-thumb{width:40px;height:40px;border-radius:8px}.c-contact-card{padding:35px 21px}.c-contact-links{gap:11px;margin-top:26px}.c-contact-item{font-size:11px;padding:12px 16px;max-width:100%;overflow-wrap:anywhere}.l-footer{padding:35px 0}.l-footer__inner{align-items:flex-start;gap:20px}.l-footer__copy{font-size:10px;max-width:190px}.l-footer__back-top{font-size:10px;flex-shrink:0}.p-projects-hero{padding:125px 0 30px}.p-projects-hero+.c-christmas-collection{padding-top:15px;padding-bottom:60px}.p-projects-grid{gap:45px;margin-bottom:65px}.p-project-deep-card{border-radius:22px}.p-project-deep-body{padding:25px 21px}.p-project-deep-title{font-size:28px;line-height:1.25}.p-project-deep-grid{gap:24px}.p-project-deep-col p{font-size:13px;line-height:1.75}.p-nexus-compare-header{padding:12px;gap:10px;flex-wrap:wrap}.p-nexus-compare-header strong{font-size:11px}.p-nexus-compare-media{height:270px}.p-nexus-compare-caption{font-size:12px}.p-nexus-gallery-grid{grid-template-columns:1fr;gap:18px}.p-nexus-gallery-card .media-box{height:280px}.c-gallery-heading{font-size:19px}.p-project-deep-media.c-deep-art{height:280px}.c-media-viewer{width:calc(100% - 24px);border-radius:18px;max-height:93svh}.c-media-stage{padding:12px}.c-media-image{max-height:60svh}.c-media-caption{padding:23px 21px 27px}.c-media-caption h2{font-size:27px}.c-media-description{font-size:13px}.c-media-status{font-size:8px;line-height:1.6}.c-media-close{width:34px;height:34px;margin:12px 12px -46px auto;font-size:23px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.c-glass-card:hover,.c-hero__portrait-frame:hover{transform:none}}
-.c-canvas-overlay{background:linear-gradient(90deg,rgba(10,9,8,.72),rgba(10,9,8,.5) 45%,rgba(10,9,8,.28)),radial-gradient(circle at center,rgba(13,12,11,.15),rgba(13,12,11,.6))}.c-hero__subtitle{color:#d6d1c7}.c-hero__stat-label{color:#b8b2a7}
+.c-canvas-container{background:#24312e}.c-canvas-overlay{background:linear-gradient(90deg,rgba(10,9,8,.66),rgba(10,9,8,.6) 45%,rgba(10,9,8,.54)),radial-gradient(ellipse at center,rgba(13,12,11,.05) 35%,rgba(13,12,11,.2))}.c-ambient-glow{opacity:.12}.c-hero__subtitle{color:#d6d1c7}.c-hero__stat-label{color:#b8b2a7}
 
 /* Nexus Westend: the designer's AI concepts, followed by the executed pavilion. */
 .c-nexus-journey { display: block; }
@@ -1237,4 +1235,20 @@ html{scroll-padding-top:105px}.c-orange{color:var(--color-orange)}.c-btn--primar
   .c-nexus-concept-caption h4 { font-size: 20px; }
   .c-nexus-stage--actual { padding-top: 30px; margin-top: 35px; }
   .c-nexus-journey-footer .c-btn { width: 100%; justify-content: center; }
+}
+
+/* Let visitors inspect the entire scrolling studio while retaining their place. */
+.c-animation-controls { position: fixed; left: 20px; right: 20px; bottom: 18px; z-index: 90; display: flex; align-items: center; justify-content: flex-end; gap: 14px; pointer-events: none; }
+.c-animation-toggle { pointer-events: auto; padding: 12px 18px; border-radius: 30px; border: 1px solid var(--color-border-glow); background: #141310eb; color: var(--color-text-main); box-shadow: 0 5px 22px #0005; font-size: 12px; font-weight: 700; }
+.c-animation-toggle:hover { border-color: var(--color-orange); color: var(--color-orange); }
+.c-animation-hint { margin-right: auto; padding: 10px 16px; border-radius: 24px; background: #141310db; color: #f7f5f1; font-size: 12px; }
+.c-animation-hint[hidden] { display: none; }
+.l-scroll-wrapper { transition: opacity .25s ease; }
+[data-studio-view=full] .l-scroll-wrapper { opacity: 0; visibility: hidden; pointer-events: none; }
+[data-studio-view=full] .c-canvas-overlay { background: radial-gradient(ellipse at center, transparent 60%, #0d0c0b26); }
+[data-studio-view=full] .c-ambient-glow { opacity: .05; }
+@media (max-width: 600px) {
+  .c-animation-controls { left: 12px; right: 12px; bottom: 14px; gap: 10px; flex-wrap: wrap; }
+  .c-animation-toggle { font-size: 11px; padding: 11px 15px; }
+  .c-animation-hint { font-size: 10px; padding: 9px 12px; }
 }
