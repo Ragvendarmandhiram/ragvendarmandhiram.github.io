@@ -1243,6 +1243,7 @@ html{scroll-padding-top:105px}.c-orange{color:var(--color-orange)}.c-btn--primar
 .c-animation-toggle:hover { border-color: var(--color-orange); color: var(--color-orange); }
 .c-animation-hint { margin-right: auto; padding: 10px 16px; border-radius: 24px; background: #141310db; color: #f7f5f1; font-size: 12px; }
 .c-animation-hint[hidden] { display: none; }
+.l-footer { padding-bottom: 88px; }
 .l-scroll-wrapper { transition: opacity .25s ease; }
 [data-studio-view=full] .l-scroll-wrapper { opacity: 0; visibility: hidden; pointer-events: none; }
 [data-studio-view=full] .c-canvas-overlay { background: radial-gradient(ellipse at center, transparent 60%, #0d0c0b26); }
